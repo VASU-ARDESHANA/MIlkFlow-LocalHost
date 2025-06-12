@@ -2,6 +2,4 @@
 Milk man dashboard
 
 
-## License
-
-This project is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International Public License](LICENSE.md) for educational purposes only.
+## 📘 Licensed for educational use only – see [LICENSE.md](LICENSE.md) for full terms.
