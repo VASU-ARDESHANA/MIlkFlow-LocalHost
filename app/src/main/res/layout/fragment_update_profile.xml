@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.UpdateProfileFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/bw">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fadeScrollbars="false"
+                android:fillViewport="true"
+                android:scrollbarSize="0dp"
+                android:scrollbars="vertical"
+                tools:ignore="UselessParent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_15sp">
+
+                    <TextView
+                        android:id="@+id/profile_update_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:autoSizeMaxTextSize="@dimen/_30sp"
+                        android:autoSizeMinTextSize="@dimen/_7sp"
+                        android:gravity="center"
+                        android:padding="@dimen/_10sp"
+                        android:text="@string/check_you_detail_and_if_any_change_then_update_it"
+                        android:textSize="@dimen/_15sp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profile_update_name_til"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:hint="@string/user_name"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:startIconDrawable="@drawable/user_id">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profile_update_business_name_til"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:hint="@string/business_name"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:startIconDrawable="@drawable/business">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profile_update_email_til"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:hint="@string/prompt_email"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:endIconDrawable="@drawable/verified"
+                        app:endIconMode="custom"
+                        app:startIconDrawable="@drawable/email">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/profile_update_email_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            android:inputType="textEmailAddress" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profile_update_phone_til"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:hint="@string/number"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:startIconDrawable="@drawable/numbers">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            android:inputType="number" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profile_update_address_til"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:hint="@string/address"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:startIconDrawable="@drawable/pin_drop">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="text" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profile_update_city_til"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:hint="@string/city"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:startIconDrawable="@drawable/location">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profile_update_state_til"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:hint="@string/state"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:startIconDrawable="@drawable/location">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profile_update_pinCode_til"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:hint="@string/pin_code"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:startIconDrawable="@drawable/location">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:maxLength="6" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profile_update_upi_til"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:hint="@string/upi_id"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:startIconDrawable="@drawable/upi">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            tools:ignore="VisualLintTextFieldSize" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sp"
+                        android:text="@string/do_you_want_to_receive_reminder_notifications_from_us"
+                        android:textSize="@dimen/_15sp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:layout_marginStart="25sp"
+                        android:layout_marginEnd="25sp"
+                        android:hint="@string/notification_enabled"
+                        android:visibility="visible"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:boxStrokeWidth="0sp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:startIconDrawable="@drawable/notification">
+
+                        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                            android:id="@+id/profile_update_notification_mact"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/bw"
+                            android:inputType="none"
+                            tools:ignore="SpeakableTextPresentCheck" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profile_update_registered_date_til"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:hint="@string/registered_date"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:startIconDrawable="@drawable/calendar">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            android:inputType="datetime" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/update_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/button_background"
+                        android:padding="15dp"
+                        android:text="@string/update_now"
+                        android:textColor="@color/bw" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/profile_update_progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:SpinKit_Color="@color/warning"
+            app:SpinKit_Style="FadingCircle" />
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

@@ -1,0 +1,146 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/customer_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/_10sp"
+    app:cardBackgroundColor="@color/backgroundCard"
+    app:cardCornerRadius="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/customer_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/user_name"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="@color/primary"
+            app:layout_constraintEnd_toStartOf="@+id/active_badge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/vacation_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sp"
+            android:background="@drawable/bg_vacation_badge"
+            android:paddingHorizontal="@dimen/_8sp"
+            android:paddingVertical="2dp"
+            android:text="@string/on_vacation"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/customer_name"
+            app:layout_constraintEnd_toStartOf="@+id/more_options_button"
+            app:layout_constraintTop_toTopOf="@+id/customer_name"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/active_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sp"
+            android:background="@drawable/bg_active_badge"
+            android:paddingHorizontal="@dimen/_8sp"
+            android:paddingVertical="2dp"
+            android:text="@string/not_active"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/customer_name"
+            app:layout_constraintEnd_toStartOf="@+id/more_options_button"
+            app:layout_constraintTop_toTopOf="@+id/customer_name"
+            tools:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/more_options_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/more_option"
+            android:src="@drawable/more"
+            app:layout_constraintBottom_toBottomOf="@+id/customer_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/customer_name" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/warning"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/customer_name" />
+
+        <TextView
+            android:id="@+id/customer_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawablePadding="@dimen/_8sp"
+            android:gravity="center"
+            android:text="@string/phone"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textColor="@color/text"
+            android:tooltipText="@string/call_the_customer"
+            app:drawableStartCompat="@drawable/ic_call"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+
+        <TextView
+            android:id="@+id/customer_paddings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sp"
+            android:drawablePadding="@dimen/_8sp"
+            android:gravity="center"
+            android:text="@string/paddings"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="@color/text"
+            android:tooltipText="@string/padding_amount"
+            app:drawableStartCompat="@drawable/load_money"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/customer_phone" />
+
+        <TextView
+            android:id="@+id/customer_starting_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sp"
+            android:drawablePadding="@dimen/_8sp"
+            android:gravity="center"
+            android:text="@string/start_date"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="@color/text"
+            android:tooltipText="@string/date_when_the_customer_received_the_product"
+            app:drawableStartCompat="@drawable/calendar_tick"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/customer_paddings" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/customer_vacation_switch"
+            style="@style/Widget.Material3.CompoundButton.MaterialSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vacation_mode"
+            android:tooltipText="@string/vacation_mode"
+            app:layout_constraintBottom_toBottomOf="@+id/customer_starting_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/customer_phone"
+            app:thumbIcon="@drawable/travel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#FFC10700</color>
+    <color name="grey">#FF616161</color>
+    <color name="light_grey">#FF9E9E9E</color>
+    <color name="dark_grey">#FF424242</color>
+    <color name="green">#FF4CAF50</color>
+    <color name="blue">#FF2196F3</color>
+    <color name="yellow">#FFFFEB3B</color>
+    <color name="pink">#FFFF4081</color>
+    <color name="orange">#FFFF9100</color>
+    <color name="purple">#FF9C27B0</color>
+    <color name="brown">#FF795548</color>
+    <color name="cyan">#FF00BCD4</color>
+    <color name="teal">#FF009688</color>
+    <color name="amber">#FFFFC107</color>
+    <color name="lime">#FFCDDC39</color>
+    <color name="indigo">#FF3F51B5</color>
+    <color name="deep_orange">#FFFF5722</color>
+
+
+    <color name="cross_bw">#BBDEFB</color>
+    <color name="bw">#000000</color>
+    <color name="wb">#FFFFFF</color>
+    <color name="text">#E0E0E0</color>
+    <color name="success">#81C784</color>
+    <color name="warning">#FFB74D</color>
+    <color name="error">#EF5350</color>
+    <color name="primary">#90CAF9</color>
+    <color name="primary_blue_container">#0D47A1</color>
+    <color name="backgroundCard">#414242</color>
+    <color name="iconColor">#F5F5F5</color>
+    <color name="ToolBar">#1E1E1E</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="vacation_bg">#807A6A</color>
+
+</resources>

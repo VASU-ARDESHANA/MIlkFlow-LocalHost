@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/nav_group_1"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="@string/dashboard" />
+
+    </group>
+
+    <group
+        android:id="@+id/nav_group_2"
+        android:checkableBehavior="all">
+
+        <item
+            android:id="@+id/nav_customer"
+            android:icon="@drawable/user_id"
+            android:title="@string/customer"
+            app:actionViewClass="android.widget.ImageView" />
+
+        <item
+            android:id="@+id/nav_customer_list"
+            android:title="@string/customer_list"
+            android:visible="false" />
+
+        <item
+            android:id="@+id/nav_register_customer"
+            android:title="@string/register_customer"
+            android:visible="false" />
+
+    </group>
+
+    <group
+        android:id="@+id/nav_group_3"
+        android:checkableBehavior="all">
+
+        <item
+            android:id="@+id/nav_daily_sell"
+            android:icon="@drawable/delivery"
+            android:title="@string/daily_sell" />
+
+    </group>
+
+    <group
+        android:id="@+id/nav_group_4"
+        android:checkableBehavior="all">
+
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/profile"
+            android:title="@string/account"
+            app:actionViewClass="android.widget.ImageView" />
+
+        <item
+            android:id="@+id/nav_supplier_account"
+            android:title="@string/profile"
+            android:visible="false" />
+
+        <item
+            android:id="@+id/nav_supplier_products"
+            android:title="@string/products"
+            android:visible="false" />
+
+        <item
+            android:id="@+id/action_logout"
+            android:icon="@drawable/logout"
+            android:title="@string/logout"
+            android:titleCondensed="@string/logout"
+            app:showAsAction="always" />
+
+    </group>
+
+    <group
+        android:id="@+id/nav_group_5"
+        android:checkableBehavior="single">
+
+
+    </group>
+
+
+</menu>

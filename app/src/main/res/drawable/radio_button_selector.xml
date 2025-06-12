@@ -1,0 +1,16 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="8dp" />
+            <solid android:color="@color/backgroundCard" />
+            <stroke android:width="2dp" android:color="@color/wb" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="8dp" />
+            <solid android:color="@color/ToolBar" />
+            <stroke android:width="1dp" android:color="@color/backgroundCard" />
+        </shape>
+    </item>
+</selector>

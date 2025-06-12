@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "421858925543",
+    "project_id": "milkflow-vasu",
+    "storage_bucket": "milkflow-vasu.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421858925543:android:d97c552dd3667b4a64bb42",
+        "android_client_info": {
+          "package_name": "vasu.apps.milkflow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsf_bTzwNxxf3nh4DsGZc-eWd_dBiM1rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

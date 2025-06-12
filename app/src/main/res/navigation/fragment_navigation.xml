@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="vasu.apps.milkflow.Fragment.HomeFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <action
+        android:id="@+id/action_to_dash_board"
+        app:destination="@id/nav_home"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/nav_home"
+        app:popUpToInclusive="true" />
+
+    <fragment
+        android:id="@+id/nav_supplier_products"
+        android:name="vasu.apps.milkflow.Fragment.UpdateProductsFragment"
+        tools:layout="@layout/fragment_update_products">
+
+        <argument
+            android:name="products"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_supplier_account"
+        android:name="vasu.apps.milkflow.Fragment.UpdateProfileFragment"
+        tools:layout="@layout/fragment_update_profile">
+
+        <argument
+            android:name="products"
+            android:defaultValue=""
+            app:argType="string" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_customer_list"
+        android:name="vasu.apps.milkflow.Fragment.CustomerListFragment"
+        tools:layout="@layout/fragment_customer_list" />
+
+    <fragment
+        android:id="@+id/nav_daily_sell"
+        android:name="vasu.apps.milkflow.Fragment.DailySellFragment"
+        tools:layout="@layout/fragment_daily_sell" />
+
+    <fragment
+        android:id="@+id/nav_register_customer"
+        android:name="vasu.apps.milkflow.Fragment.RegisterCustomerFragment"
+        tools:layout="@layout/fragment_register_customer" />
+
+</navigation>

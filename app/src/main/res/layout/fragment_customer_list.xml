@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.CustomerListFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/customer_list_search_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_background"
+                android:focusable="true"
+                android:layout_weight="1"
+                android:iconifiedByDefault="true"
+                android:inputType="text"
+                android:queryHint="@string/search"
+                android:scrollbars="vertical"
+                app:iconifiedByDefault="false"
+                app:queryBackground="@color/transparent"
+                app:queryHint="@string/search_customer"
+                app:searchHintIcon="@null"
+                app:searchIcon="@drawable/user_search" />
+
+            <ImageButton
+                android:id="@+id/customer_list_refresh"
+                android:layout_width="@dimen/_48sp"
+                android:layout_height="@dimen/_48sp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/transparent"
+                android:contentDescription="@string/refresh"
+                android:src="@drawable/refresh" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/customer_list_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10sp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:visibility="visible"
+            tools:listitem="@layout/recycler_view_customer" />
+
+        <TextView
+            android:id="@+id/customer_list_not_found"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/folder_no_access"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/no_customers_found_start_by_adding_your_first_customer"
+            android:textAlignment="center"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_20sp"
+            android:visibility="gone"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+
+        <TextView
+            android:id="@+id/customer_list_search_not_found"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/error"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/no_matching_customers_found_please_refine_your_search"
+            android:textAlignment="center"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_20sp"
+            android:visibility="gone"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/customer_list_floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/_15sp"
+        android:backgroundTint="@color/backgroundCard"
+        android:text="@string/add_customer"
+        android:textColor="@color/text"
+        app:icon="@drawable/add_customer"
+        app:iconTint="@color/text" />
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/customer_list_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:SpinKit_Color="@color/warning"
+        app:SpinKit_Style="FadingCircle" />
+
+</RelativeLayout>

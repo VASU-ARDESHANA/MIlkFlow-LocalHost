@@ -1,0 +1,45 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/start_placeholder">
+
+    <fragment
+        android:id="@+id/start_placeholder"
+        android:name="androidx.fragment.app.Fragment"
+        tools:layout="@layout/fragment_blank" >
+
+        <action
+            android:id="@+id/action_to_password"
+            app:destination="@id/password_navigation"
+            app:launchSingleTop="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/password_navigation"
+        android:name="vasu.apps.milkflow.Fragment.UpdatePasswordFragment"
+        tools:layout="@layout/fragment_update_password" />
+
+    <fragment
+        android:id="@+id/update_profile_navigation"
+        android:name="vasu.apps.milkflow.Fragment.UpdateProfileFragment"
+        tools:layout="@layout/fragment_update_profile" >
+
+        <action
+            android:id="@+id/action_to_update_profile"
+            app:destination="@id/update_profile_navigation"
+            app:launchSingleTop="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/update_product_navigation"
+        android:name="vasu.apps.milkflow.Fragment.UpdateProductsFragment"
+        tools:layout="@layout/fragment_update_products" >
+
+        <action
+            android:id="@+id/action_to_update_product"
+            app:destination="@id/update_product_navigation"
+            app:launchSingleTop="true" />
+    </fragment>
+
+</navigation>
