@@ -1,132 +1,75 @@
-# Creative Commons Attribution-NonCommercial 4.0 International Public License  
-(CC BY-NC 4.0)
+# 📘 Custom Educational Use Only Software License
 
-By exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-NonCommercial 4.0 International Public License ("Public License"). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.
+**Copyright © 2025 VASU ARDESHANA**
 
----
-
-## Section 1 – Definitions
-
-- **Adapted Material**: Modified versions of the Licensed Material (e.g., translations, transformations).
-- **Copyright and Similar Rights**: Includes copyrights and closely related rights (e.g., performance, broadcast).
-- **Effective Technological Measures**: Technical measures that restrict use and cannot be bypassed without authorization.
-- **Exceptions and Limitations**: Legal doctrines like fair use or fair dealing.
-- **Licensed Material**: The content subject to this Public License.
-- **Licensed Rights**: The copyright-related rights granted to You.
-- **Licensor**: The person or entity offering the Licensed Material under this License.
-- **NonCommercial**: Not intended for commercial advantage or monetary compensation.
-- **Share**: To make material available to the public (e.g., reproduce, distribute).
-- **Sui Generis Database Rights**: Special rights protecting database contents in certain jurisdictions.
-- **You**: The individual or entity using the Licensed Material.
+Permission is hereby granted, free of charge, to any person or institution obtaining a copy  
+of this software and associated documentation files (the “Software”), to use, reproduce,  
+modify, and distribute the Software **solely for educational and academic purposes**,  
+subject to the following conditions:
 
 ---
 
-## Section 2 – Scope
+## 🎓 Educational Use Only
 
-### a. License Grant
+The Software may **only be used for non-commercial educational purposes**. This includes:
 
-1. **You may**, subject to the terms:
-   - Reproduce and share the Licensed Material.
-   - Create and share Adapted Material.
+- Personal learning
+- Academic coursework
+- Classroom teaching
+- Non-commercial research
 
-2. **Exceptions and Limitations** (e.g., fair use) are unaffected.
-
-3. **Term**: See Section 6(a).
-
-4. **All formats and media allowed**, including future technologies. You may make necessary technical changes.
-
-5. **Downstream Rights**:
-   - Recipients automatically get the same rights.
-   - You may not add restrictions (e.g., DRM).
-
-6. **No Endorsement**: This license does not imply endorsement by the Licensor.
-
-### b. Other Rights
-
-1. **Moral rights** (like integrity) are not licensed but may be waived as needed.  
-2. **Patent and trademark rights** are not included.  
-3. **No royalties**: Licensor waives royalty collection rights under this license.
+❗ Any use of the Software for **profit, financial gain, or commercial advantage** is strictly **prohibited**.
 
 ---
 
-## Section 3 – License Conditions
+## 📎 Attribution
 
-### a. Attribution
-
-If you share the material (original or modified), you must:
-
-1. Provide:
-   - Creator’s name and attribution as requested.
-   - Copyright notice.
-   - Notice of this license.
-   - Disclaimer notice.
-   - URI or link to the original material (if practicable).
-
-2. Indicate changes made, if any.
-
-3. Include the license URL:  
-   https://creativecommons.org/licenses/by-nc/4.0/
-
-4. Remove attribution information if the Licensor asks and it’s reasonably feasible.
-
-### b. NonCommercial Use Only
-
-You **may not** use the material primarily for commercial purposes or monetary compensation.
+You must retain this license notice and attribution to the original author(s)  
+in **all copies or substantial portions** of the Software.
 
 ---
 
-## Section 4 – Sui Generis Database Rights
+## 🛠️ Modification and Distribution
 
-If the Licensed Material includes database rights:
+You are allowed to:
 
-1. You may extract and share substantial parts.  
-2. If you integrate it into a new database, the new compilation may be Adapted Material.  
-3. You must follow attribution conditions when sharing.
+- Modify the Software
+- Share modified versions
 
----
+As long as:
 
-## Section 5 – Disclaimer of Warranties & Limitation of Liability
-
-### a. Disclaimer
-
-The material is provided *“as-is”*, without warranties (express or implied), including merchantability or fitness for purpose.  
-(Some jurisdictions may not allow exclusions.)
-
-### b. Limitation of Liability
-
-To the maximum extent allowed by law, the Licensor is **not liable** for any damages, including indirect or consequential damages.
+- Use remains **for educational purposes only**
+- You include a clear notice of the changes made
 
 ---
 
-## Section 6 – Term and Termination
+## 🚫 No Commercial Use
 
-- **a. Duration**: This license is valid for the duration of copyright unless You violate the terms.
-- **b. Reinstatement**:
-  - Automatically reinstates if the violation is fixed within 30 days.
-  - Or upon Licensor’s express approval.
-- **c. Other terms**: The Licensor may stop distributing or offer the material under other terms without revoking this license.
-- **d. Surviving Sections**: Sections 1, 5, 6, 7, and 8 continue after termination.
+The Software may **not** be:
+
+- Sold or sublicensed
+- Included in any commercial product, service, or platform
 
 ---
 
-## Section 7 – Other Terms
+## ⚠️ Disclaimer of Warranty
 
-- The Licensor is not bound by any terms You communicate unless agreed.
-- Any other agreements are independent from this License.
+> THE SOFTWARE IS PROVIDED **"AS IS"**, WITHOUT WARRANTY OF ANY KIND,  
+> EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF  
+> MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
 
----
-
-## Section 8 – Interpretation
-
-- This license **does not restrict** any legal use of the material outside its terms.
-- If any term is unenforceable, it will be modified or removed without affecting the rest.
-- No term is waived unless the Licensor expressly agrees.
-- No limitation on legal privileges or immunities is implied.
+The author is not liable for any claims, damages, or liabilities  
+arising from the use of the Software.
 
 ---
 
-**Note**:  
-Creative Commons is not a law firm and does not provide legal services. Using or referencing this license does not create a lawyer-client relationship.
+## ⛔ Termination
 
-For more information, visit:  
-🔗 https://creativecommons.org/licenses/by-nc/4.0/
+Violation of any term in this license will result in **automatic termination** of the license.
+
+---
+
+## 📩 Contact
+
+For licensing inquiries beyond educational use, please contact:  
+**VASU ARDESHANA**
