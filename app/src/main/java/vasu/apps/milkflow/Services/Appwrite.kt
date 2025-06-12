@@ -11,9 +11,6 @@ object Appwrite {
 
     private lateinit var client: Client
     val accountService: AccountService by lazy { AccountService(client) }
-
-    //    val databaseService : DatabaseService by lazy { DatabaseService(client) }
-
     val userService: UserService by lazy { UserService(client) }
 
     fun init(context: Context) {
