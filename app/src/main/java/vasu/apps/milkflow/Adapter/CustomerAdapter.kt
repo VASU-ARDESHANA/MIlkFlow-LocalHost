@@ -147,7 +147,7 @@ class CustomerAdapter(
                     R.id.menu_delete -> {
                         CoroutineScope(Dispatchers.Main).launch {
                             try {
-                                Appwrite.userService.deleteCustomer(customer.id)
+                                Appwrite.customerService.deleteCustomer(customer.id)
                                 DynamicToast.makeSuccess(context, "${customer.name.lowercase()} has been deleted successfully", Toast.LENGTH_SHORT).show()
                             } catch (e: Exception) {
                                 DynamicToast.makeError(context, e.message

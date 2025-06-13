@@ -40,6 +40,7 @@ class RegisterCustomerFragment : Fragment() {
 
     private var accountService = Appwrite.accountService
     private var userService = Appwrite.userService
+    private var customerService = Appwrite.customerService
 
     private lateinit var rootView: View
     private lateinit var consumerName: TextInputLayout
@@ -75,9 +76,7 @@ class RegisterCustomerFragment : Fragment() {
     private var cachedUserData: Map<String, Any>? = null
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         rootView = inflater.inflate(R.layout.fragment_register_customer, container, false)
 
@@ -128,9 +127,7 @@ class RegisterCustomerFragment : Fragment() {
         )
 
         val deliveryTime = listOf(
-            getString(R.string.morning),
-            getString(R.string.evening),
-            getString(R.string.both)
+            getString(R.string.morning), getString(R.string.evening), getString(R.string.both)
         )
         val deliveryTimeAdapter =
             ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, deliveryTime)
@@ -160,10 +157,7 @@ class RegisterCustomerFragment : Fragment() {
         morningBuffaloGroup = listOf(consumerMorningBuffaloLitter)
         eveningBuffaloGroup = listOf(consumerEveningBuffaloLitter)
         cowMilkGroup = listOf(
-            cowText,
-            consumerCowMilkPrice,
-            consumerMorningCowLitter,
-            consumerEveningCowLitter
+            cowText, consumerCowMilkPrice, consumerMorningCowLitter, consumerEveningCowLitter
         )
 
         buffaloMilkGroup = listOf(
@@ -234,12 +228,10 @@ class RegisterCustomerFragment : Fragment() {
                     val buffaloEnabled = (userData["is_buffalo_milk_enabled"] as? Boolean) == true
 
                     consumerCowMilkPrice.editText?.setText(
-                        userData["price_cow_milk"]?.toString()
-                            ?: ""
+                        userData["price_cow_milk"]?.toString() ?: ""
                     )
                     consumerBuffaloMilkPrice.editText?.setText(
-                        userData["price_buffalo_milk"]?.toString()
-                            ?: ""
+                        userData["price_buffalo_milk"]?.toString() ?: ""
                     )
 
                     val milkType = mutableListOf<String>()
@@ -253,9 +245,7 @@ class RegisterCustomerFragment : Fragment() {
                     }
 
                     val milkTypeAdapter = ArrayAdapter(
-                        requireContext(),
-                        android.R.layout.simple_list_item_1,
-                        milkType
+                        requireContext(), android.R.layout.simple_list_item_1, milkType
                     )
                     consumerMilkType.setAdapter(milkTypeAdapter)
 
@@ -400,7 +390,7 @@ class RegisterCustomerFragment : Fragment() {
 
             try {
                 withContext(Dispatchers.IO) {
-                    userService.createNewUserDocument(data)
+                    customerService.createNewUserDocument(data)
                     val updatedCount = createdConsumer + 1
                     val updateData = mapOf("created_consumer" to updatedCount)
                     userService.updateUserDocument(user.id, updateData, supplierData)
@@ -427,14 +417,12 @@ class RegisterCustomerFragment : Fragment() {
 
     private fun setupDatePicker(editText: TextInputEditText) {
         editText.setOnClickListener {
-            val constraintsBuilder = CalendarConstraints.Builder()
-                .setValidator(DateValidatorPointForward.now())
+            val constraintsBuilder =
+                CalendarConstraints.Builder().setValidator(DateValidatorPointForward.now())
 
-            val datePicker = MaterialDatePicker.Builder.datePicker()
-                .setTitleText("Select a date")
+            val datePicker = MaterialDatePicker.Builder.datePicker().setTitleText("Select a date")
                 .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
-                .setCalendarConstraints(constraintsBuilder.build())
-                .build()
+                .setCalendarConstraints(constraintsBuilder.build()).build()
 
             datePicker.addOnPositiveButtonClickListener { selection ->
                 val selectedDate = Date(selection)
@@ -496,10 +484,7 @@ class RegisterCustomerFragment : Fragment() {
         for (til in textInputLayouts) {
             til.editText?.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(
-                    s: CharSequence?,
-                    start: Int,
-                    count: Int,
-                    after: Int
+                    s: CharSequence?, start: Int, count: Int, after: Int
                 ) {
                 }
 
@@ -519,8 +504,7 @@ class RegisterCustomerFragment : Fragment() {
 
     private fun convertToRFC3339(input: String): String {
         val inputFormat = SimpleDateFormat(
-            "dd/MM/yyyy",
-            Locale.getDefault()
+            "dd/MM/yyyy", Locale.getDefault()
         )
         val outputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
         val date = inputFormat.parse(input)

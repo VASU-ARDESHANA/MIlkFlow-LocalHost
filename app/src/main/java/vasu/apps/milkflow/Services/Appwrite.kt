@@ -12,6 +12,7 @@ object Appwrite {
     private lateinit var client: Client
     val accountService: AccountService by lazy { AccountService(client) }
     val userService: UserService by lazy { UserService(client) }
+    val customerService: CustomerService by lazy { CustomerService(client) }
 
     fun init(context: Context) {
         client = Client(context).setEndpoint(ENDPOINT).setProject(PROJECT_ID).setSelfSigned(true)

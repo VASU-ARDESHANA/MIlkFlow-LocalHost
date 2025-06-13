@@ -28,6 +28,7 @@ class DailySellFragment : Fragment() {
 
     private var accountService = Appwrite.accountService
     private var userService = Appwrite.userService
+    private var customerService = Appwrite.customerService
 
     private lateinit var rootView: View
     private lateinit var recyclerView: RecyclerView
@@ -42,9 +43,7 @@ class DailySellFragment : Fragment() {
     private var allCustomersList: MutableList<DailySell> = mutableListOf() // Change here
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         rootView = inflater.inflate(R.layout.fragment_daily_sell, container, false)
 
@@ -102,7 +101,7 @@ class DailySellFragment : Fragment() {
                 val buffaloMilkPrice =
                     (supplierData?.get("price_buffalo_milk") as? Number)?.toDouble()
 
-                val allCustomers = userService.getCustomers(supplierId)
+                val allCustomers = customerService.getCustomers(supplierId)
 
                 allCustomersList = allCustomers.map { document ->
                     val data = document.data

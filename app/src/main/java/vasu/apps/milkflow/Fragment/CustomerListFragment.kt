@@ -31,6 +31,7 @@ class CustomerListFragment : Fragment() {
 
     private var accountService = Appwrite.accountService
     private var userService = Appwrite.userService
+    private var customerService = Appwrite.customerService
 
     private lateinit var rootView: View
     private lateinit var recyclerView: RecyclerView
@@ -43,7 +44,11 @@ class CustomerListFragment : Fragment() {
     private lateinit var floatingActionButton: ExtendedFloatingActionButton
     private lateinit var progressBar: ProgressBar
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         rootView = inflater.inflate(R.layout.fragment_customer_list, container, false)
 
         recyclerView = rootView.findViewById(R.id.customer_list_recycler_view)
@@ -80,7 +85,7 @@ class CustomerListFragment : Fragment() {
                 val currentUser = accountService.getLoggedIn()
                 val supplierId = currentUser?.id ?: return@launch
 
-                val allCustomers = userService.getCustomers(supplierId)
+                val allCustomers = customerService.getCustomers(supplierId)
 
                 var requiresUpdate = false
                 for (customerDoc in allCustomers) {
@@ -91,12 +96,12 @@ class CustomerListFragment : Fragment() {
 
                     if (startDateOnly == currentDate && !isActive) {
                         requiresUpdate = true
-                        userService.updatedCustomerById(customerDoc.id, mapOf("is_active" to true))
+                        customerService.updatedCustomerById(customerDoc.id, mapOf("is_active" to true))
                     }
                 }
 
                 val finalCustomerList = if (requiresUpdate) {
-                    userService.getCustomers(supplierId)
+                    customerService.getCustomers(supplierId)
                 } else {
                     allCustomers
                 }
@@ -121,14 +126,20 @@ class CustomerListFragment : Fragment() {
                     lifecycleScope.launch {
                         val startTimeVaC = System.currentTimeMillis()
                         try {
-                            userService.updatedCustomerById(customerId, mapOf("is_on_vacation" to isOnVacation))
+                            customerService.updatedCustomerById(
+                                customerId,
+                                mapOf("is_on_vacation" to isOnVacation)
+                            )
                             if (isOnVacation) {
                                 toastMsg("Customer marked as on vacation.", "warning")
                             } else {
                                 toastMsg("Customer is now back to receiving deliveries.", "success")
                             }
                         } catch (e: Exception) {
-                            toastMsg("Failed to update status: ${e.message ?: "Unknown error"}", "error")
+                            toastMsg(
+                                "Failed to update status: ${e.message ?: "Unknown error"}",
+                                "error"
+                            )
                         } finally {
                             val elapsedTime = System.currentTimeMillis() - startTimeVaC
                             val delayTime = 1000 - elapsedTime
