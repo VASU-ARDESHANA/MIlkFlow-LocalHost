@@ -35,9 +35,12 @@ class CustomerService(client: Client) {
         }
     }
 
-    suspend fun updatedCustomerById(documentId: String, data: Map<String, Any>): Document<Map<String, Any>> {
+    suspend fun updatedCustomerById(
+        documentId: String, data: Map<String, Any>
+    ): Document<Map<String, Any>> {
         return try {
-            val updateDocument = databases.updateDocument(databaseId, customerCollectionId, documentId, data)
+            val updateDocument =
+                databases.updateDocument(databaseId, customerCollectionId, documentId, data)
             Log.e("LogUserService", updateDocument.toString())
             updateDocument
         } catch (e: AppwriteException) {
@@ -48,8 +51,11 @@ class CustomerService(client: Client) {
 
     suspend fun getCustomers(userId: String): List<Document<Map<String, Any>>> {
         return try {
-            val result = databases.listDocuments(databaseId, customerCollectionId, queries = listOf(
-                Query.equal("supplier_id", userId)))
+            val result = databases.listDocuments(
+                databaseId, customerCollectionId, queries = listOf(
+                    Query.equal("supplier_id", userId)
+                )
+            )
             result.documents
         } catch (e: AppwriteException) {
             Log.e("LogUserServices", "getCustomers: ${e.message}")

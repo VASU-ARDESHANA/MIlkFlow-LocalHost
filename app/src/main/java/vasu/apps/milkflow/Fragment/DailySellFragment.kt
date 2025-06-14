@@ -40,7 +40,7 @@ class DailySellFragment : Fragment() {
     private lateinit var progressBar: ProgressBar
 
     private var time = "morning"
-    private var allCustomersList: MutableList<DailySell> = mutableListOf() // Change here
+    private var allCustomersList: MutableList<DailySell> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -56,14 +56,6 @@ class DailySellFragment : Fragment() {
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter = DailySellAdapter(mutableListOf(), time)
-
-        searchInput.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean = false
-            override fun onQueryTextChange(newText: String?): Boolean {
-                adapter.filter.filter(newText)
-                return true
-            }
-        })
 
         recyclerView.adapter = adapter
 
@@ -103,13 +95,17 @@ class DailySellFragment : Fragment() {
 
                 val allCustomers = customerService.getCustomers(supplierId)
 
-                allCustomersList = allCustomers.map { document ->
+                allCustomersList = allCustomers.mapNotNull { document ->
                     val data = document.data
+                    val isOnVacation = data["is_on_vacation"] as? Boolean == true
+
+                    if (isOnVacation) return@mapNotNull null
+
                     DailySell(
                         idSupplier = supplierId,
                         id = document.id,
                         name = data["name"].toString(),
-                        vacationMode = data["is_on_vacation"] as? Boolean ?: false,
+                        vacationMode = isOnVacation,
                         deliveryTime = data["delivery_time"].toString(),
                         milkType = data["milk_type"].toString(),
                         morningCowMilkQty = (data["morning_cow_milk_qty"] as? Number)?.toDouble(),
@@ -120,7 +116,22 @@ class DailySellFragment : Fragment() {
                         priceBuffaloMilk = buffaloMilkPrice
                     )
                 }.toMutableList()
+
                 filterAndDisplayData()
+
+                searchInput.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                    override fun onQueryTextSubmit(query: String?): Boolean = false
+                    override fun onQueryTextChange(newText: String?): Boolean {
+                        adapter.filter.filter(newText)
+
+                        recyclerView.postDelayed({
+                            val visibleCount = adapter.itemCount
+                            updateListVisibility(visibleCount, "sub")
+                        }, 100)
+
+                        return true
+                    }
+                })
 
             } catch (e: Exception) {
                 toastMsg(e.message ?: "An unknown error occurred", "error")
@@ -143,13 +154,29 @@ class DailySellFragment : Fragment() {
 
         adapter.updateList(filteredList, time)
         updateToolbarTitle(filteredList.size.toString())
-
-        customerNotFound.visibility = if (filteredList.isEmpty()) View.VISIBLE else View.GONE
+        updateListVisibility(filteredList.size, "main")
     }
 
     private fun updateToolbarTitle(count: String) {
         val title = getString(R.string.app_name) + " - Daily Sell ($count)"
         (requireActivity() as? MainActivity)?.setMainToolbarTitle(title)
+    }
+
+    private fun updateListVisibility(count: Int, head: String) {
+        if (count == 0 && head == "main") {
+            recyclerView.visibility = View.GONE
+            customerNotFound.visibility = View.VISIBLE
+            nameNotFound.visibility = View.GONE
+        } else if (count == 0 && head == "sub") {
+            recyclerView.visibility = View.GONE
+            nameNotFound.visibility = View.VISIBLE
+            customerNotFound.visibility = View.GONE
+        } else {
+            recyclerView.visibility = View.VISIBLE
+            customerNotFound.visibility = View.GONE
+            nameNotFound.visibility = View.GONE
+
+        }
     }
 
     private fun toastMsg(message: String, toastType: String) {
