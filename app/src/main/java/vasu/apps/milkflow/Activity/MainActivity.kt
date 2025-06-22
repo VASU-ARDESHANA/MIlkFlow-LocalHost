@@ -1,6 +1,7 @@
 package vasu.apps.milkflow.Activity
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.graphics.Outline
 import android.os.Bundle
 import android.view.MenuItem
@@ -52,6 +53,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+
         toolbar = findViewById(R.id.toolbar)
         toolbarHeader = findViewById(R.id.main_toolbar_text)
         setSupportActionBar(toolbar)
@@ -79,8 +82,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 R.id.nav_supplier_account,
                 R.id.nav_supplier_products,
                 R.id.nav_daily_sell
-            ),
-            drawerLayout
+            ), drawerLayout
         )
 
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
@@ -202,9 +204,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun collapseMenuItems(
-        menuItemIds: List<Int>,
-        isExpandedFlag: KMutableProperty0<Boolean>,
-        parentItemId: Int
+        menuItemIds: List<Int>, isExpandedFlag: KMutableProperty0<Boolean>, parentItemId: Int
     ) {
         val menu = navigationView.menu
         menuItemIds.forEach { menu.findItem(it).isVisible = false }
@@ -225,8 +225,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(
-            navController,
-            appBarConfiguration
+            navController, appBarConfiguration
         ) || super.onSupportNavigateUp()
     }
 

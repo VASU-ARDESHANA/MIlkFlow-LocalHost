@@ -9,136 +9,154 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:background="@drawable/big_background"
+        android:orientation="vertical">
 
-        <RadioGroup
-            android:id="@+id/daily_sell_time"
+        <vasu.apps.datepickerwheel.DatePickerWheel
+            android:id="@+id/daily_sell_date_picker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_10sp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="@dimen/_2sp">
-
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/daily_sell_morning"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_4sp"
-                android:layout_weight="1"
-                android:background="@drawable/radio_button_selector"
-                android:button="@null"
-                android:gravity="center"
-                android:text="@string/morning"
-                android:textColor="@color/text" />
-
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/daily_sell_evening"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_4sp"
-                android:layout_weight="1"
-                android:background="@drawable/radio_button_selector"
-                android:button="@null"
-                android:gravity="center"
-                android:text="@string/evening"
-                android:textColor="@color/text" />
-
-        </RadioGroup>
+            app:autoDate="true"
+            app:dateToText="true"
+            app:isTodayButtonEnable="true"
+            app:mode="month" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/backgroundCard"
-            app:cardCornerRadius="@dimen/_10sp"
-            app:cardElevation="2dp">
+            android:layout_height="match_parent"
+            android:background="@drawable/big_background"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <RadioGroup
+                android:id="@+id/daily_sell_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/_2sp">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/daily_sell_morning"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_4sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/radio_button_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="@string/morning"
+                    android:textColor="@color/text" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/daily_sell_evening"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_4sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/radio_button_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="@string/evening"
+                    android:textColor="@color/text" />
+
+            </RadioGroup>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="@dimen/_5sp"
-                android:weightSum="5">
+                app:cardBackgroundColor="@color/backgroundCard"
+                app:cardCornerRadius="@dimen/_10sp"
+                app:cardElevation="2dp">
 
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/daily_sell_search_input"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:background="@drawable/search_background"
-                    android:contextClickable="true"
-                    android:focusable="true"
-                    android:iconifiedByDefault="true"
-                    android:inputType="text"
-                    android:queryHint="@string/search"
-                    android:scrollbars="vertical"
-                    app:iconifiedByDefault="false"
-                    app:queryBackground="@color/transparent"
-                    app:queryHint="@string/search_customer"
-                    app:searchHintIcon="@null"
-                    app:searchIcon="@drawable/user_search" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_5sp"
+                    android:weightSum="5">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/litter"
-                    android:textAppearance="?attr/textAppearanceBody1"
-                    android:textColor="@color/text" />
+                    <androidx.appcompat.widget.SearchView
+                        android:id="@+id/daily_sell_search_input"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:background="@drawable/search_background"
+                        android:contextClickable="true"
+                        android:focusable="true"
+                        android:iconifiedByDefault="true"
+                        android:inputType="text"
+                        android:queryHint="@string/search"
+                        android:scrollbars="vertical"
+                        app:iconifiedByDefault="false"
+                        app:queryBackground="@color/transparent"
+                        app:queryHint="@string/search_customer"
+                        app:searchHintIcon="@null"
+                        app:searchIcon="@drawable/user_search" />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/total"
-                    android:textAppearance="?attr/textAppearanceBody1"
-                    android:textColor="@color/text" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/litter"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        android:textColor="@color/text" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/total"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        android:textColor="@color/text" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/daily_sell_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_10sp"
+                android:layout_weight="1"
+                android:clipToPadding="false"
+                android:visibility="visible"
+                tools:listitem="@layout/recycler_view_daily_sell" />
+
+            <TextView
+                android:id="@+id/daily_sell_not_found"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/check_your_customer"
+                android:textAlignment="center"
+                android:textColor="@color/text"
+                android:textSize="@dimen/_20sp"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/folder_no_access" />
+
+            <TextView
+                android:id="@+id/daily_sell_search_not_found"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/no_matching_customers_found_please_refine_your_search"
+                android:textAlignment="center"
+                android:textColor="@color/text"
+                android:textSize="@dimen/_20sp"
+                android:visibility="gone"
+                app:drawableTopCompat="@drawable/error" />
+
         </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/daily_sell_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/_10sp"
-            android:layout_weight="1"
-            android:clipToPadding="false"
-            android:visibility="visible"
-            tools:listitem="@layout/recycler_view_daily_sell" />
-
-        <TextView
-            android:id="@+id/daily_sell_not_found"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="8dp"
-            android:gravity="center"
-            android:padding="16dp"
-            android:text="@string/check_your_customer"
-            android:textAlignment="center"
-            android:textColor="@color/text"
-            android:textSize="@dimen/_20sp"
-            android:visibility="gone"
-            app:drawableStartCompat="@drawable/folder_no_access" />
-
-        <TextView
-            android:id="@+id/daily_sell_search_not_found"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="8dp"
-            android:gravity="center"
-            android:padding="16dp"
-            android:text="@string/no_matching_customers_found_please_refine_your_search"
-            android:textAlignment="center"
-            android:textColor="@color/text"
-            android:textSize="@dimen/_20sp"
-            android:visibility="gone"
-            app:drawableTopCompat="@drawable/error" />
 
     </LinearLayout>
 

@@ -1,6 +1,7 @@
 package vasu.apps.milkflow.Activity
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,11 +19,15 @@ class ProfileUpdateActivity : AppCompatActivity() {
 
     val accountService = Appwrite.accountService
 
-    override fun onCreate(savedInstanceState : Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_update)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.profile_update_nav_host_fragment_content_main) as NavHostFragment
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+
+
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.profile_update_nav_host_fragment_content_main) as NavHostFragment
 
         val navController = navHostFragment.navController
         val navInflater = navController.navInflater
@@ -45,7 +50,11 @@ class ProfileUpdateActivity : AppCompatActivity() {
                 isProductSet == "no" -> R.id.update_product_navigation
 
                 else -> {
-                    DynamicToast.makeSuccess(this@ProfileUpdateActivity, "Your profile is up to date.", Toast.LENGTH_SHORT).show()
+                    DynamicToast.makeSuccess(
+                        this@ProfileUpdateActivity,
+                        "Your profile is up to date.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     accountService.setUserPrefs(profileCreated = "yes")
                     val intent = Intent(this@ProfileUpdateActivity, LoginActivity::class.java)
                     startActivity(intent)
@@ -60,7 +69,7 @@ class ProfileUpdateActivity : AppCompatActivity() {
 
     }
 
-    private suspend fun handleLogout(message : String) {
+    private suspend fun handleLogout(message: String) {
         DynamicToast.makeWarning(this, message, Toast.LENGTH_SHORT).show()
         withContext(Dispatchers.IO) {
             accountService.logout()
@@ -70,8 +79,8 @@ class ProfileUpdateActivity : AppCompatActivity() {
         finish()
     }
 
-    fun setToolbarTitle(title : String) {
-        val topBarName = findViewById<MaterialTextView>(R.id.profile_update_topbar_name)
+    fun setToolbarTitle(title: String) {
+        val topBarName = findViewById<MaterialTextView>(R.id.profile_update_top_bar_name)
         topBarName?.text = title
     }
 

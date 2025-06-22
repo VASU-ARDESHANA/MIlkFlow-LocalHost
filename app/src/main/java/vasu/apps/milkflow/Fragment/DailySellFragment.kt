@@ -9,6 +9,7 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.size
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,11 +19,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import vasu.apps.datepickerwheel.DatePickerWheel
 import vasu.apps.milkflow.Activity.MainActivity
 import vasu.apps.milkflow.Adapter.DailySellAdapter
 import vasu.apps.milkflow.Model.DailySell
 import vasu.apps.milkflow.R
 import vasu.apps.milkflow.Services.Appwrite
+import java.util.Calendar
 
 class DailySellFragment : Fragment() {
 
@@ -36,6 +39,7 @@ class DailySellFragment : Fragment() {
     private lateinit var customerNotFound: TextView
     private lateinit var nameNotFound: TextView
     private lateinit var radioGroup: RadioGroup
+    private lateinit var datePicker: DatePickerWheel
     private lateinit var adapter: DailySellAdapter
     private lateinit var progressBar: ProgressBar
 
@@ -52,12 +56,16 @@ class DailySellFragment : Fragment() {
         customerNotFound = rootView.findViewById(R.id.daily_sell_not_found)
         nameNotFound = rootView.findViewById(R.id.daily_sell_search_not_found)
         radioGroup = rootView.findViewById(R.id.daily_sell_time)
+        datePicker = rootView.findViewById(R.id.daily_sell_date_picker)
         progressBar = rootView.findViewById(R.id.daily_sell_progressBar)
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter = DailySellAdapter(mutableListOf(), time)
 
         recyclerView.adapter = adapter
+
+        val today = Calendar.getInstance()
+        datePicker.setActiveDate(today)
 
         radioGroup.check(R.id.daily_sell_morning)
 
@@ -105,7 +113,7 @@ class DailySellFragment : Fragment() {
                         idSupplier = supplierId,
                         id = document.id,
                         name = data["name"].toString(),
-                        vacationMode = isOnVacation,
+                        vacationMode = data["is_on_vacation"] as? Boolean == true,
                         deliveryTime = data["delivery_time"].toString(),
                         milkType = data["milk_type"].toString(),
                         morningCowMilkQty = (data["morning_cow_milk_qty"] as? Number)?.toDouble(),

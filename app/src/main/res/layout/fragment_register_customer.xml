@@ -11,400 +11,407 @@
         android:layout_height="match_parent"
         android:backgroundTint="@color/bw">
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:fadeScrollbars="false"
-            android:fillViewport="true"
-            android:scrollbarSize="0dp"
-            android:scrollbars="horizontal">
+            android:background="@drawable/big_background">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/_5sp">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/customer_register_name_til"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_5sp"
-                    android:hint="@string/user_name"
-                    app:boxCornerRadiusBottomEnd="6sp"
-                    app:boxCornerRadiusBottomStart="6sp"
-                    app:boxCornerRadiusTopEnd="6sp"
-                    app:boxCornerRadiusTopStart="6sp"
-                    app:endIconDrawable="@drawable/contact_book"
-                    app:endIconMode="custom"
-                    app:startIconDrawable="@drawable/user_id">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/customer_register_number_til"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_5sp"
-                    android:hint="@string/number"
-                    app:boxCornerRadiusBottomEnd="6sp"
-                    app:boxCornerRadiusBottomStart="6sp"
-                    app:boxCornerRadiusTopEnd="6sp"
-                    app:boxCornerRadiusTopStart="6sp"
-                    app:counterEnabled="true"
-                    app:counterMaxLength="10"
-                    app:startIconDrawable="@drawable/numbers">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/customer_register_address_til"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_5sp"
-                    android:hint="@string/address"
-                    app:boxCornerRadiusBottomEnd="6sp"
-                    app:boxCornerRadiusBottomStart="6sp"
-                    app:boxCornerRadiusTopEnd="6sp"
-                    app:boxCornerRadiusTopStart="6sp"
-                    app:startIconDrawable="@drawable/pin_drop">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:inputType="text" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/customer_register_start_date_til"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_5sp"
-                    android:hint="@string/start_date"
-                    app:boxCornerRadiusBottomEnd="6sp"
-                    app:boxCornerRadiusBottomStart="6sp"
-                    app:boxCornerRadiusTopEnd="6sp"
-                    app:boxCornerRadiusTopStart="6sp"
-                    app:startIconDrawable="@drawable/calendar">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/customer_register_start_date_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:cursorVisible="false"
-                        android:focusable="false"
-                        android:focusableInTouchMode="false"
-                        android:inputType="none"
-                        android:longClickable="false" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fadeScrollbars="false"
+                android:fillViewport="true"
+                android:scrollbarSize="0dp"
+                android:scrollbars="horizontal">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_5sp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sp">
 
-                    <View
-                        android:id="@+id/divider"
-                        android:layout_width="3dp"
-                        android:layout_height="match_parent"
-                        android:background="@color/warning" />
-
-                    <TextView
-                        android:id="@+id/customer_register_instruction_text"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/customer_register_name_til"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/backgroundCard"
-                        android:justificationMode="inter_character"
-                        android:padding="10dp"
-                        android:text="@string/customer_register_instruction"
-                        android:textColor="@color/text"
-                        android:textSize="@dimen/_16sp"
-                        android:textStyle="bold" />
+                        android:layout_margin="@dimen/_5sp"
+                        android:hint="@string/user_name"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:endIconDrawable="@drawable/contact_book"
+                        app:endIconMode="custom"
+                        app:startIconDrawable="@drawable/user_id">
+
+                        <com.google.android.material.textfield.TextInputEditText android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/customer_register_number_til"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:hint="@string/number"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="10"
+                        app:startIconDrawable="@drawable/numbers">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/customer_register_address_til"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:hint="@string/address"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:startIconDrawable="@drawable/pin_drop">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="text" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/customer_register_start_date_til"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:hint="@string/start_date"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:startIconDrawable="@drawable/calendar">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/customer_register_start_date_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:inputType="none"
+                            android:longClickable="false" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:id="@+id/divider"
+                            android:layout_width="3dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/warning" />
+
+                        <TextView
+                            android:id="@+id/customer_register_instruction_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/backgroundCard"
+                            android:justificationMode="inter_character"
+                            android:padding="10dp"
+                            android:text="@string/customer_register_instruction"
+                            android:textColor="@color/text"
+                            android:textSize="@dimen/_16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/customer_register_delivery_time_til"
+                        style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:layout_marginStart="25sp"
+                        android:layout_marginEnd="25sp"
+                        android:hint="@string/delivery_time"
+                        android:visibility="visible"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:boxStrokeWidth="0sp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:startIconDrawable="@drawable/delivery">
+
+                        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                            android:id="@+id/customer_register_delivery_time_mact"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/bw"
+                            android:inputType="none" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/customer_register_milk_type_til"
+                        style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:layout_marginStart="25sp"
+                        android:layout_marginEnd="25sp"
+                        android:hint="@string/milk_type"
+                        android:visibility="visible"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:boxStrokeWidth="0sp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:startIconDrawable="@drawable/products">
+
+                        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                            android:id="@+id/customer_register_milk_type_mact"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/bw"
+                            android:inputType="none" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sp"
+                        android:columnCount="4"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_5sp"
+                        android:rowCount="2">
+
+                        <TextView
+                            android:id="@+id/customer_register_cow_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_row="0"
+                            android:layout_column="0"
+                            android:layout_columnWeight="1"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="8dp"
+                            android:gravity="center"
+                            android:text="@string/cow_milk"
+                            android:textSize="16sp" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/customer_register_cow_milk_price_til"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_row="0"
+                            android:layout_column="1"
+                            android:layout_columnWeight="1"
+                            android:layout_marginEnd="8dp"
+                            android:hint="@string/l"
+                            app:boxCornerRadiusBottomEnd="6dp"
+                            app:boxCornerRadiusBottomStart="6dp"
+                            app:boxCornerRadiusTopEnd="6dp"
+                            app:boxCornerRadiusTopStart="6dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:inputType="number" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/customer_register_morning_cow_litter_til"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_row="0"
+                            android:layout_column="2"
+                            android:layout_columnWeight="1"
+                            android:layout_marginEnd="8dp"
+                            android:hint="@string/morning"
+                            app:boxCornerRadiusBottomEnd="6dp"
+                            app:boxCornerRadiusBottomStart="6dp"
+                            app:boxCornerRadiusTopEnd="6dp"
+                            app:boxCornerRadiusTopStart="6dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:maxLength="2" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/customer_register_evening_cow_litter_til"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_row="0"
+                            android:layout_column="3"
+                            android:layout_columnWeight="1"
+                            android:hint="@string/evening"
+                            app:boxCornerRadiusBottomEnd="6dp"
+                            app:boxCornerRadiusBottomStart="6dp"
+                            app:boxCornerRadiusTopEnd="6dp"
+                            app:boxCornerRadiusTopStart="6dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:maxLength="2" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:id="@+id/customer_register_buffalo_text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_row="1"
+                            android:layout_column="0"
+                            android:layout_columnWeight="1"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:gravity="center"
+                            android:text="@string/buffalo_milk"
+                            android:textSize="16sp" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/customer_register_buffalo_milk_price_til"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_row="1"
+                            android:layout_column="1"
+                            android:layout_columnWeight="1"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:hint="@string/l"
+                            app:boxCornerRadiusBottomEnd="6dp"
+                            app:boxCornerRadiusBottomStart="6dp"
+                            app:boxCornerRadiusTopEnd="6dp"
+                            app:boxCornerRadiusTopStart="6dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:inputType="number" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/customer_register_morning_buffalo_litter_til"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_row="1"
+                            android:layout_column="2"
+                            android:layout_columnWeight="1"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:hint="@string/morning"
+                            app:boxCornerRadiusBottomEnd="6dp"
+                            app:boxCornerRadiusBottomStart="6dp"
+                            app:boxCornerRadiusTopEnd="6dp"
+                            app:boxCornerRadiusTopStart="6dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:maxLength="2" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/customer_register_evening_buffalo_litter_til"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_row="1"
+                            android:layout_column="3"
+                            android:layout_columnWeight="1"
+                            android:layout_marginTop="16dp"
+                            android:hint="@string/evening"
+                            app:boxCornerRadiusBottomEnd="6dp"
+                            app:boxCornerRadiusBottomStart="6dp"
+                            app:boxCornerRadiusTopEnd="6dp"
+                            app:boxCornerRadiusTopStart="6dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:maxLength="2" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </GridLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/customer_register_payment_mode_til"
+                        style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sp"
+                        android:layout_marginStart="25sp"
+                        android:layout_marginEnd="25sp"
+                        android:hint="@string/payment_mode"
+                        android:visibility="visible"
+                        app:boxCornerRadiusBottomEnd="6sp"
+                        app:boxCornerRadiusBottomStart="6sp"
+                        app:boxCornerRadiusTopEnd="6sp"
+                        app:boxCornerRadiusTopStart="6sp"
+                        app:boxStrokeWidth="0sp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:startIconDrawable="@drawable/products">
+
+                        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                            android:id="@+id/customer_register_payment_mode_mact"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/bw"
+                            android:inputType="none" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/add_customer_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/button_background"
+                        android:padding="15dp"
+                        android:text="@string/add_customer"
+                        android:textColor="@color/bw" />
 
                 </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/customer_register_delivery_time_til"
-                    style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_5sp"
-                    android:layout_marginStart="25sp"
-                    android:layout_marginEnd="25sp"
-                    android:hint="@string/delivery_time"
-                    android:visibility="visible"
-                    app:boxCornerRadiusBottomEnd="6sp"
-                    app:boxCornerRadiusBottomStart="6sp"
-                    app:boxCornerRadiusTopEnd="6sp"
-                    app:boxCornerRadiusTopStart="6sp"
-                    app:boxStrokeWidth="0sp"
-                    app:boxStrokeWidthFocused="0dp"
-                    app:startIconDrawable="@drawable/delivery">
+            </ScrollView>
 
-                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                        android:id="@+id/customer_register_delivery_time_mact"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/bw"
-                        android:inputType="none" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/customer_register_milk_type_til"
-                    style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_5sp"
-                    android:layout_marginStart="25sp"
-                    android:layout_marginEnd="25sp"
-                    android:hint="@string/milk_type"
-                    android:visibility="visible"
-                    app:boxCornerRadiusBottomEnd="6sp"
-                    app:boxCornerRadiusBottomStart="6sp"
-                    app:boxCornerRadiusTopEnd="6sp"
-                    app:boxCornerRadiusTopStart="6sp"
-                    app:boxStrokeWidth="0sp"
-                    app:boxStrokeWidthFocused="0dp"
-                    app:startIconDrawable="@drawable/products">
-
-                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                        android:id="@+id/customer_register_milk_type_mact"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/bw"
-                        android:inputType="none" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <GridLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_10sp"
-                    android:columnCount="4"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/_5sp"
-                    android:rowCount="2">
-
-                    <TextView
-                        android:id="@+id/customer_register_cow_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="0"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="center"
-                        android:text="@string/cow_milk"
-                        android:textSize="16sp" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/customer_register_cow_milk_price_til"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_row="0"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_marginEnd="8dp"
-                        android:hint="@string/l"
-                        app:boxCornerRadiusBottomEnd="6dp"
-                        app:boxCornerRadiusBottomStart="6dp"
-                        app:boxCornerRadiusTopEnd="6dp"
-                        app:boxCornerRadiusTopStart="6dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:clickable="true"
-                            android:cursorVisible="false"
-                            android:focusable="false"
-                            android:inputType="number" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/customer_register_morning_cow_litter_til"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_row="0"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_marginEnd="8dp"
-                        android:hint="@string/morning"
-                        app:boxCornerRadiusBottomEnd="6dp"
-                        app:boxCornerRadiusBottomStart="6dp"
-                        app:boxCornerRadiusTopEnd="6dp"
-                        app:boxCornerRadiusTopStart="6dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:maxLength="2" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/customer_register_evening_cow_litter_til"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_row="0"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:hint="@string/evening"
-                        app:boxCornerRadiusBottomEnd="6dp"
-                        app:boxCornerRadiusBottomStart="6dp"
-                        app:boxCornerRadiusTopEnd="6dp"
-                        app:boxCornerRadiusTopStart="6dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:maxLength="2" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <TextView
-                        android:id="@+id/customer_register_buffalo_text"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_row="1"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="center"
-                        android:text="@string/buffalo_milk"
-                        android:textSize="16sp" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/customer_register_buffalo_milk_price_til"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_row="1"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="8dp"
-                        android:hint="@string/l"
-                        app:boxCornerRadiusBottomEnd="6dp"
-                        app:boxCornerRadiusBottomStart="6dp"
-                        app:boxCornerRadiusTopEnd="6dp"
-                        app:boxCornerRadiusTopStart="6dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:clickable="true"
-                            android:cursorVisible="false"
-                            android:focusable="false"
-                            android:inputType="number" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/customer_register_morning_buffalo_litter_til"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_row="1"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="8dp"
-                        android:hint="@string/morning"
-                        app:boxCornerRadiusBottomEnd="6dp"
-                        app:boxCornerRadiusBottomStart="6dp"
-                        app:boxCornerRadiusTopEnd="6dp"
-                        app:boxCornerRadiusTopStart="6dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:maxLength="2" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/customer_register_evening_buffalo_litter_til"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_row="1"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_marginTop="16dp"
-                        android:hint="@string/evening"
-                        app:boxCornerRadiusBottomEnd="6dp"
-                        app:boxCornerRadiusBottomStart="6dp"
-                        app:boxCornerRadiusTopEnd="6dp"
-                        app:boxCornerRadiusTopStart="6dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:maxLength="2" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </GridLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/customer_register_payment_mode_til"
-                    style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_5sp"
-                    android:layout_marginStart="25sp"
-                    android:layout_marginEnd="25sp"
-                    android:hint="@string/payment_mode"
-                    android:visibility="visible"
-                    app:boxCornerRadiusBottomEnd="6sp"
-                    app:boxCornerRadiusBottomStart="6sp"
-                    app:boxCornerRadiusTopEnd="6sp"
-                    app:boxCornerRadiusTopStart="6sp"
-                    app:boxStrokeWidth="0sp"
-                    app:boxStrokeWidthFocused="0dp"
-                    app:startIconDrawable="@drawable/products">
-
-                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                        android:id="@+id/customer_register_payment_mode_mact"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/bw"
-                        android:inputType="none" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/add_customer_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/button_background"
-                    android:padding="15dp"
-                    android:text="@string/add_customer"
-                    android:textColor="@color/bw" />
-
-            </LinearLayout>
-
-        </ScrollView>
+        </LinearLayout>
 
         <com.github.ybq.android.spinkit.SpinKitView
             android:id="@+id/customer_register_progress_bar"

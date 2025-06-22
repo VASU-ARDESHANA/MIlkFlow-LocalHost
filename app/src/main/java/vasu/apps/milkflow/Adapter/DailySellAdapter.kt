@@ -35,7 +35,6 @@ class DailySellAdapter(
             (view.findViewById<TextInputLayout>(R.id.rv_daily_sell_buffalo_milk_litters)).editText!!
         val buffaloMilkPrice: TextView = view.findViewById(R.id.rv_daily_sell_buffalo_milk_price)
 
-        // 👇 Track watchers
         var cowWatcher: TextWatcher? = null
         var buffaloWatcher: TextWatcher? = null
     }

@@ -7,6 +7,7 @@
     tools:context=".Fragment.CustomerListFragment">
 
     <LinearLayout
+        android:background="@drawable/big_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"

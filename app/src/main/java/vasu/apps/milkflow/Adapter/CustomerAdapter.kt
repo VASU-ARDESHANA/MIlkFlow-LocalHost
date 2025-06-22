@@ -120,7 +120,6 @@ class CustomerAdapter(
             val popup = androidx.appcompat.widget.PopupMenu(context, holder.moreOptionsButton)
             popup.inflate(R.menu.customer_item_menu)
 
-            // 🔧 Force icons to show using reflection
             try {
                 val fields = popup.javaClass.declaredFields
                 for (field in fields) {

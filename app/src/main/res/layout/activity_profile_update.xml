@@ -20,7 +20,7 @@
             android:orientation="vertical">
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/profile_update_topbar_name"
+                android:id="@+id/profile_update_top_bar_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"

@@ -14,6 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/big_background"
             android:orientation="vertical">
 
             <LinearLayout
@@ -206,7 +207,6 @@
             android:visibility="gone"
             app:SpinKit_Color="@color/warning"
             app:SpinKit_Style="FadingCircle" />
-
 
     </androidx.cardview.widget.CardView>
 

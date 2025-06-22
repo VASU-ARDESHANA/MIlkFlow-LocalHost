@@ -3,6 +3,7 @@ package vasu.apps.milkflow.Activity
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -45,6 +46,8 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
         error = findViewById(R.id.login_errors)
 
@@ -137,13 +140,13 @@ class LoginActivity : AppCompatActivity() {
 
                 when (isProfileUpdated) {
                     "no" -> {
-                        activityChange(ProfileUpdateActivity::class.java)
-            //                    notification()
+                        activityChange(ProfileUpdateActivity::class.java) //                    notification()
                     }
+
                     "yes" -> {
-                        activityChange(MainActivity::class.java)
-            //                    notification()
+                        activityChange(MainActivity::class.java) //                    notification()
                     }
+
                     else -> {
                         handleLogout("Contact to ADMIN")
                     }
@@ -164,11 +167,11 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
-//    private suspend fun notification() {
-//        val target = withContext(Dispatchers.IO) {
-//            accountService.registerPushTarget()
-//        }
-//    }
+    //    private suspend fun notification() {
+    //        val target = withContext(Dispatchers.IO) {
+    //            accountService.registerPushTarget()
+    //        }
+    //    }
 
     private suspend fun handleLogout(message: String) {
         withContext(Dispatchers.IO) {
@@ -198,9 +201,11 @@ class LoginActivity : AppCompatActivity() {
             "warning" -> {
                 DynamicToast.makeWarning(this, message, Toast.LENGTH_SHORT).show()
             }
+
             "error" -> {
                 DynamicToast.makeError(this, message, Toast.LENGTH_SHORT).show()
             }
+
             else -> {
                 DynamicToast.make(
                     this,
@@ -253,9 +258,11 @@ class LoginActivity : AppCompatActivity() {
                         "no" -> {
                             activityChange(ProfileUpdateActivity::class.java)
                         }
+
                         "yes" -> {
                             activityChange(MainActivity::class.java)
                         }
+
                         else -> {
                             handleLogout("Contact to ADMIN")
                         }
@@ -282,8 +289,7 @@ class LoginActivity : AppCompatActivity() {
             //            }
 
             if (ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.POST_NOTIFICATIONS
+                    this, Manifest.permission.POST_NOTIFICATIONS
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
                 permissions.add(Manifest.permission.POST_NOTIFICATIONS)
@@ -295,14 +301,11 @@ class LoginActivity : AppCompatActivity() {
 
         } else {
             if (ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.READ_EXTERNAL_STORAGE
+                    this, Manifest.permission.READ_EXTERNAL_STORAGE
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
                 ActivityCompat.requestPermissions(
-                    this,
-                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
-                    101
+                    this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 101
                 )
             }
         }

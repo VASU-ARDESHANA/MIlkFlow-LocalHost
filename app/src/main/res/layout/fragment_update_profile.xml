@@ -14,6 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/big_background"
             android:orientation="vertical">
 
             <ScrollView
@@ -44,12 +45,24 @@
                         android:text="@string/check_you_detail_and_if_any_change_then_update_it"
                         android:textSize="@dimen/_15sp" />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:autoSizeMaxTextSize="@dimen/_30sp"
+                        android:autoSizeMinTextSize="@dimen/_7sp"
+                        android:gravity="center"
+                        android:padding="@dimen/_10sp"
+                        android:text="Update Your Profile"
+                        android:textSize="@dimen/_15sp" />
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/profile_update_name_til"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_5sp"
                         android:hint="@string/user_name"
+                        app:boxBackgroundColor="@color/backgroundCard"
                         app:boxCornerRadiusBottomEnd="6sp"
                         app:boxCornerRadiusBottomStart="6sp"
                         app:boxCornerRadiusTopEnd="6sp"
@@ -69,6 +82,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_5sp"
                         android:hint="@string/business_name"
+                        app:boxBackgroundColor="@color/backgroundCard"
                         app:boxCornerRadiusBottomEnd="6sp"
                         app:boxCornerRadiusBottomStart="6sp"
                         app:boxCornerRadiusTopEnd="6sp"
@@ -88,6 +102,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_5sp"
                         android:hint="@string/prompt_email"
+                        app:boxBackgroundColor="@color/backgroundCard"
                         app:boxCornerRadiusBottomEnd="6sp"
                         app:boxCornerRadiusBottomStart="6sp"
                         app:boxCornerRadiusTopEnd="6sp"
@@ -114,6 +129,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_5sp"
                         android:hint="@string/number"
+                        app:boxBackgroundColor="@color/backgroundCard"
                         app:boxCornerRadiusBottomEnd="6sp"
                         app:boxCornerRadiusBottomStart="6sp"
                         app:boxCornerRadiusTopEnd="6sp"
@@ -136,6 +152,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_5sp"
                         android:hint="@string/address"
+                        app:boxBackgroundColor="@color/backgroundCard"
                         app:boxCornerRadiusBottomEnd="6sp"
                         app:boxCornerRadiusBottomStart="6sp"
                         app:boxCornerRadiusTopEnd="6sp"
@@ -155,6 +172,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_5sp"
                         android:hint="@string/city"
+                        app:boxBackgroundColor="@color/backgroundCard"
                         app:boxCornerRadiusBottomEnd="6sp"
                         app:boxCornerRadiusBottomStart="6sp"
                         app:boxCornerRadiusTopEnd="6sp"
@@ -174,6 +192,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_5sp"
                         android:hint="@string/state"
+                        app:boxBackgroundColor="@color/backgroundCard"
                         app:boxCornerRadiusBottomEnd="6sp"
                         app:boxCornerRadiusBottomStart="6sp"
                         app:boxCornerRadiusTopEnd="6sp"
@@ -193,6 +212,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_5sp"
                         android:hint="@string/pin_code"
+                        app:boxBackgroundColor="@color/backgroundCard"
                         app:boxCornerRadiusBottomEnd="6sp"
                         app:boxCornerRadiusBottomStart="6sp"
                         app:boxCornerRadiusTopEnd="6sp"
@@ -213,6 +233,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_5sp"
                         android:hint="@string/upi_id"
+                        app:boxBackgroundColor="@color/backgroundCard"
                         app:boxCornerRadiusBottomEnd="6sp"
                         app:boxCornerRadiusBottomStart="6sp"
                         app:boxCornerRadiusTopEnd="6sp"
@@ -243,6 +264,7 @@
                         android:layout_marginEnd="25sp"
                         android:hint="@string/notification_enabled"
                         android:visibility="visible"
+                        app:boxBackgroundColor="@color/backgroundCard"
                         app:boxCornerRadiusBottomEnd="6sp"
                         app:boxCornerRadiusBottomStart="6sp"
                         app:boxCornerRadiusTopEnd="6sp"
@@ -267,6 +289,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_5sp"
                         android:hint="@string/registered_date"
+                        app:boxBackgroundColor="@color/backgroundCard"
                         app:boxCornerRadiusBottomEnd="6sp"
                         app:boxCornerRadiusBottomStart="6sp"
                         app:boxCornerRadiusTopEnd="6sp"
