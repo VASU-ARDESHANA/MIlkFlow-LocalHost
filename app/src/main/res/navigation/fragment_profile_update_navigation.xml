@@ -18,7 +18,13 @@
     <fragment
         android:id="@+id/password_navigation"
         android:name="vasu.apps.milkflow.Fragment.UpdatePasswordFragment"
-        tools:layout="@layout/fragment_update_password" />
+        tools:layout="@layout/fragment_update_password" >
+
+        <action
+            android:id="@+id/action_to_update_profile"
+            app:destination="@id/update_profile_navigation"
+            app:launchSingleTop="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/update_profile_navigation"
@@ -26,8 +32,8 @@
         tools:layout="@layout/fragment_update_profile" >
 
         <action
-            android:id="@+id/action_to_update_profile"
-            app:destination="@id/update_profile_navigation"
+            android:id="@+id/action_to_update_product"
+            app:destination="@id/update_product_navigation"
             app:launchSingleTop="true" />
     </fragment>
 

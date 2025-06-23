@@ -22,6 +22,8 @@ class DailySellAdapter(
 ) : RecyclerView.Adapter<DailySellAdapter.ViewHolder>(), Filterable {
 
     private var items: List<DailySell> = originalItems.toList()
+    internal var onItemCheckedChange: (() -> Unit)? = null
+    internal var onDataChange: (() -> Unit)? = null
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val checkBox: CheckBox = view.findViewById(R.id.rv_daily_sell_check_box)
@@ -54,7 +56,6 @@ class DailySellAdapter(
 
         holder.name.text = item.name
 
-        // Remove previous watchers
         holder.cowMilkQuantity.removeTextChangedListener(holder.cowWatcher)
         holder.buffaloMilkQuantity.removeTextChangedListener(holder.buffaloWatcher)
 
@@ -70,16 +71,16 @@ class DailySellAdapter(
                 val cowQty =
                     if (time == "morning") item.morningCowMilkQty else item.eveningCowMilkQty
                 holder.milkType.text = "Milk type : Cow"
-                holder.cowMilkQuantity.setText(String.format("%.0f", cowQty))
+                holder.cowMilkQuantity.setText(String.format("%.1f", cowQty))
                 holder.cowMilkPrice.text = String.format("%.0f", cowQty!! * item.priceCowMilk!!)
 
-                // Add updated watcher
                 holder.cowWatcher = object : TextWatcher {
                     override fun afterTextChanged(s: Editable?) {
                         val newQty = s?.toString()?.toDoubleOrNull() ?: 0.0
                         if (time == "morning") item.morningCowMilkQty = newQty
                         else item.eveningCowMilkQty = newQty
                         holder.cowMilkPrice.text = String.format("%.0f", newQty * item.priceCowMilk)
+                        onDataChange?.invoke()
                     }
 
                     override fun beforeTextChanged(
@@ -105,7 +106,7 @@ class DailySellAdapter(
                 val buffaloQty =
                     if (time == "morning") item.morningBuffaloMilkQty else item.eveningBuffaloMilkQty
                 holder.milkType.text = "Milk type : Buffalo"
-                holder.buffaloMilkQuantity.setText(String.format("%.0f", buffaloQty))
+                holder.buffaloMilkQuantity.setText(String.format("%.1f", buffaloQty))
                 holder.buffaloMilkPrice.text =
                     String.format("%.0f", buffaloQty!! * item.priceBuffaloMilk!!)
 
@@ -116,6 +117,7 @@ class DailySellAdapter(
                         else item.eveningBuffaloMilkQty = newQty
                         holder.buffaloMilkPrice.text =
                             String.format("%.0f", newQty * item.priceBuffaloMilk)
+                        onDataChange?.invoke()
                     }
 
                     override fun beforeTextChanged(
@@ -142,7 +144,7 @@ class DailySellAdapter(
                     holder.cowLayout.visibility = View.VISIBLE
                     (holder.cowLayout.layoutParams as ViewGroup.MarginLayoutParams).bottomMargin = 0
                     holder.cowMilkPrice.visibility = View.VISIBLE
-                    holder.cowMilkQuantity.setText(String.format("%.0f", cowQty))
+                    holder.cowMilkQuantity.setText(String.format("%.1f", cowQty))
                     holder.cowMilkPrice.text = String.format("%.0f", cowQty * item.priceCowMilk!!)
                     holder.milkType.text = "Milk type : Cow"
                 } else {
@@ -157,7 +159,7 @@ class DailySellAdapter(
                 if (buffaloQty != null && buffaloQty != 0.0) {
                     holder.buffaloMilkQuantity.visibility = View.VISIBLE
                     holder.buffaloMilkPrice.visibility = View.VISIBLE
-                    holder.buffaloMilkQuantity.setText(String.format("%.0f", buffaloQty))
+                    holder.buffaloMilkQuantity.setText(String.format("%.1f", buffaloQty))
                     holder.buffaloMilkPrice.text =
                         String.format("%.0f", buffaloQty * item.priceBuffaloMilk!!)
                     holder.milkType.text = "Milk type : Buffalo"
@@ -182,6 +184,7 @@ class DailySellAdapter(
                         else item.eveningCowMilkQty = newQty
                         holder.cowMilkPrice.text =
                             String.format("%.0f", newQty * (item.priceCowMilk ?: 0.0))
+                        onDataChange?.invoke()
                     }
 
                     override fun beforeTextChanged(
@@ -204,6 +207,7 @@ class DailySellAdapter(
                         else item.eveningBuffaloMilkQty = newQty
                         holder.buffaloMilkPrice.text =
                             String.format("%.0f", newQty * (item.priceBuffaloMilk ?: 0.0))
+                        onDataChange?.invoke()
                     }
 
                     override fun beforeTextChanged(
@@ -219,6 +223,16 @@ class DailySellAdapter(
                 holder.buffaloMilkQuantity.addTextChangedListener(holder.buffaloWatcher)
             }
         }
+
+        holder.checkBox.setOnCheckedChangeListener(null)
+        holder.checkBox.isChecked = item.isSelected
+
+        holder.checkBox.setOnCheckedChangeListener { _, isChecked ->
+            item.isSelected = isChecked
+            onItemCheckedChange?.invoke()
+            onDataChange?.invoke()
+        }
+
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -237,7 +251,9 @@ class DailySellAdapter(
                     originalItems
                 } else {
                     originalItems.filter {
-                        it.name.contains(query, ignoreCase = true) || it.milkType.contains(query, ignoreCase = true)
+                        it.name.contains(query, ignoreCase = true) || it.milkType.contains(
+                            query, ignoreCase = true
+                        )
                     }
                 }
 
@@ -255,6 +271,22 @@ class DailySellAdapter(
                 notifyDataSetChanged()
             }
         }
+    }
+
+    fun selectAll() {
+        originalItems.forEach { it.isSelected = true }
+        notifyDataSetChanged()
+    }
+
+    fun deselectAll() {
+        originalItems.forEach { it.isSelected = false }
+        notifyDataSetChanged()
+    }
+
+    fun currentItems(): List<DailySell> = items
+
+    fun allSelectedItems(): List<DailySell> {
+        return originalItems.filter { it.isSelected }
     }
 
 }

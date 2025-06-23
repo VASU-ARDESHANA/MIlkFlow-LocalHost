@@ -1,6 +1,6 @@
 [versions]
 agp = "8.10.1"
-datepickerwheel = "0.0.1"
+datepickerwheel = "1.1.3"
 dynamicToasts = "4.3.0"
 kotlin = "2.0.21"
 coreKtx = "1.16.0"

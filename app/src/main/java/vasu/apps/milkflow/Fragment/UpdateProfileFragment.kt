@@ -342,13 +342,3 @@ class UpdateProfileFragment : Fragment() {
         updateProfile.isEnabled = true
     }
 }
-
-// Show a test toast
-//        DynamicToast.make(
-//                requireContext(),
-//                "Profile updated successfully!",
-//                ContextCompat.getDrawable(requireContext(), R.drawable.email),
-//                requireContext().getColor(R.color.white),
-//                requireContext().getColor(R.color.success),
-//                Toast.LENGTH_SHORT
-//        ).show()

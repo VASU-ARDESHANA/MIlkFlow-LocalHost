@@ -18,13 +18,13 @@
             android:layout_height="wrap_content"
             app:autoDate="true"
             app:dateToText="true"
-            app:isTodayButtonEnable="true"
-            app:mode="month" />
+            app:isTodayButtonEnable="false"
+            app:mode="month"
+            app:normalDateBackground="@color/transparent" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/big_background"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="10dp">
 
@@ -118,6 +118,13 @@
 
             </LinearLayout>
 
+            <CheckBox
+                android:id="@+id/daily_sell_select_all_customer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sp"
+                android:text="@string/all_customer" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/daily_sell_recycler_view"
                 android:layout_width="match_parent"
@@ -127,6 +134,86 @@
                 android:clipToPadding="false"
                 android:visibility="visible"
                 tools:listitem="@layout/recycler_view_daily_sell" />
+
+            <LinearLayout
+                android:id="@+id/daily_sell_bottom_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="0"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/_7sp"
+                android:weightSum="5">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:maxLines="1"
+                        android:text="@string/total"
+                        android:textAppearance="?attr/textAppearanceHeadlineSmall"
+                        android:textColor="@color/primary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/daily_sell_total_litters"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical|start"
+                            android:text="@string/litter" />
+
+                        <TextView
+                            android:id="@+id/daily_sell_total_price"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.9"
+                            android:gravity="center_vertical|start"
+                            android:text="@string/price"
+                            android:textAppearance="?attr/textAppearanceBody1"
+                            android:textColor="@color/text"
+                            app:drawableLeftCompat="@drawable/rupee" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/daily_sell_add_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@drawable/button_background"
+                android:padding="15dp"
+                android:text="@string/add_daily_sell"
+                android:textColor="@color/bw" />
 
             <TextView
                 android:id="@+id/daily_sell_not_found"
@@ -157,6 +244,7 @@
                 app:drawableTopCompat="@drawable/error" />
 
         </LinearLayout>
+
 
     </LinearLayout>
 

@@ -24,17 +24,6 @@ class CustomerService(client: Client) {
         }
     }
 
-    suspend fun getCustomerById(documentId: String): Document<Map<String, Any>> {
-        return try {
-            val document = databases.getDocument(databaseId, customerCollectionId, documentId)
-            Log.e("LogUserServices", "getCustomerById: $document")
-            document
-        } catch (e: AppwriteException) {
-            Log.e("LogUserServices", "getCustomerById: ${e.message}")
-            throw e
-        }
-    }
-
     suspend fun updatedCustomerById(
         documentId: String, data: Map<String, Any>
     ): Document<Map<String, Any>> {

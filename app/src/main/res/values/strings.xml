@@ -1,5 +1,4 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">LO-LOL</string>
     <string name="app_name">MilkFlow</string>
     <string name="icon">icon</string>
@@ -85,9 +84,10 @@
     <string name="litter">Litter</string>
     <string name="price">Price</string>
     <string name="total">Total (₹)</string>
-    <!-- res/values/strings.xml -->
-    <string name="customer_register_instruction">
-    Please enter &quot;0&quot; or don\'t add any value in any field where a customer does not order a specific type of milk (Cow or Buffalo) for either the morning or evening delivery.
-</string>
+    <string name="customer_register_instruction">Please enter &quot;0&quot; or don\'t add any value in any field where a customer does not order a specific type of milk (Cow or Buffalo) for either the morning or evening delivery.</string>
     <string name="check_your_customer">Check your customer</string>
+    <string name="all_customer">All Customer</string>
+    <string name="add_daily_sell">Add Daily Sell</string>
+    <string name="_0">0</string>
+    <string name="_0_0_Ltr">0.0 Ltr</string>
 </resources>

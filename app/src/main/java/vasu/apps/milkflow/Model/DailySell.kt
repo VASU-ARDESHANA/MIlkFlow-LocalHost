@@ -12,5 +12,6 @@ data class DailySell(
     var morningBuffaloMilkQty: Double?,
     var eveningBuffaloMilkQty: Double?,
     val priceCowMilk: Double?,
-    val priceBuffaloMilk: Double?
+    val priceBuffaloMilk: Double?,
+    var isSelected: Boolean = false
 )
