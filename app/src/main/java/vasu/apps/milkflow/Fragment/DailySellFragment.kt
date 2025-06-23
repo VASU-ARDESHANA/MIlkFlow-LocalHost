@@ -289,6 +289,7 @@ class DailySellFragment : Fragment() {
         updateListVisibility(filteredList.size, "main")
     }
 
+    @SuppressLint("DefaultLocale")
     private fun updateTotal() {
         val selectedItems = adapter.allSelectedItems()
 

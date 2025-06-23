@@ -273,11 +273,13 @@ class DailySellAdapter(
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun selectAll() {
         originalItems.forEach { it.isSelected = true }
         notifyDataSetChanged()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun deselectAll() {
         originalItems.forEach { it.isSelected = false }
         notifyDataSetChanged()
