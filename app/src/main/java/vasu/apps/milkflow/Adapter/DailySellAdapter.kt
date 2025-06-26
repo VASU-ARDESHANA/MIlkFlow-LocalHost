@@ -24,6 +24,7 @@ class DailySellAdapter(
     private var items: List<DailySell> = originalItems.toList()
     internal var onItemCheckedChange: (() -> Unit)? = null
     internal var onDataChange: (() -> Unit)? = null
+    private var isDisabled = false
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val checkBox: CheckBox = view.findViewById(R.id.rv_daily_sell_check_box)
@@ -233,12 +234,15 @@ class DailySellAdapter(
             onDataChange?.invoke()
         }
 
+        holder.checkBox.isEnabled = !isDisabled
+        holder.cowMilkQuantity.isEnabled = !isDisabled
+        holder.buffaloMilkQuantity.isEnabled = !isDisabled
+
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     fun updateList(newItems: List<DailySell>, time: String) {
         this.originalItems.clear()
-        this.originalItems.addAll(newItems)
+        this.originalItems.addAll(newItems.map { it.copy() })
         this.items = originalItems.toList()
         this.time = time
         notifyDataSetChanged()
@@ -267,7 +271,7 @@ class DailySellAdapter(
                 } else {
                     listOf()
                 }
-                items = filteredList
+                items = filteredList.map { it.copy() }
                 notifyDataSetChanged()
             }
         }
@@ -289,6 +293,18 @@ class DailySellAdapter(
 
     fun allSelectedItems(): List<DailySell> {
         return originalItems.filter { it.isSelected }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun disable() {
+        isDisabled = true
+        notifyDataSetChanged()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun enable() {
+        isDisabled = false
+        notifyDataSetChanged()
     }
 
 }

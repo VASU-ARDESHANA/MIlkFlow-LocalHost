@@ -16,11 +16,14 @@
             android:id="@+id/daily_sell_date_picker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sp"
             app:autoDate="true"
             app:dateToText="true"
-            app:isTodayButtonEnable="false"
+            app:dayTextSize="6sp"
+            app:isMonthEnable="false"
             app:mode="month"
-            app:normalDateBackground="@color/transparent" />
+            app:normalDateBackground="@color/transparent"
+            app:scrollingSmoothness="150" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -118,18 +121,34 @@
 
             </LinearLayout>
 
-            <CheckBox
-                android:id="@+id/daily_sell_select_all_customer"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sp"
-                android:text="@string/all_customer" />
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/daily_sell_select_all_customer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/all_customer" />
+
+                <ImageButton
+                    android:id="@+id/daily_sell_refresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center|end"
+                    android:backgroundTint="@color/transparent"
+                    android:contentDescription="@string/refresh"
+                    android:src="@drawable/refresh" />
+
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/daily_sell_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginTop="@dimen/_10sp"
+                android:layout_marginTop="@dimen/_5sp"
                 android:layout_weight="1"
                 android:clipToPadding="false"
                 android:visibility="visible"
@@ -156,7 +175,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
+                        android:layout_marginStart="@dimen/_4sp"
                         android:maxLines="1"
                         android:text="@string/total"
                         android:textAppearance="?attr/textAppearanceHeadlineSmall"
@@ -209,9 +228,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
                 android:background="@drawable/button_background"
-                android:padding="15dp"
+                android:padding="@dimen/_15sp"
                 android:text="@string/add_daily_sell"
                 android:textColor="@color/bw" />
 

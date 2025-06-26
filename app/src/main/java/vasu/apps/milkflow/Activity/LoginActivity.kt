@@ -140,11 +140,11 @@ class LoginActivity : AppCompatActivity() {
 
                 when (isProfileUpdated) {
                     "no" -> {
-                        activityChange(ProfileUpdateActivity::class.java) //                    notification()
+                        activityChange(ProfileUpdateActivity::class.java)
                     }
 
                     "yes" -> {
-                        activityChange(MainActivity::class.java) //                    notification()
+                        activityChange(MainActivity::class.java)
                     }
 
                     else -> {
@@ -167,11 +167,6 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
-    //    private suspend fun notification() {
-    //        val target = withContext(Dispatchers.IO) {
-    //            accountService.registerPushTarget()
-    //        }
-    //    }
 
     private suspend fun handleLogout(message: String) {
         withContext(Dispatchers.IO) {
@@ -310,14 +305,5 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-
-    //    DynamicToast.make(
-    //    this,
-    //    "Profile updated successfully!",
-    //    ContextCompat.getDrawable(this, R.drawable.email),
-    //    getColor(R.color.white),
-    //    getColor(R.color.success),
-    //    Toast.LENGTH_SHORT
-    //    ).show()
 
 }

@@ -69,6 +69,11 @@
             android:visible="false" />
 
         <item
+            android:id="@+id/nav_update"
+            android:icon="@drawable/update"
+            android:title="@string/check_update" />
+
+        <item
             android:id="@+id/action_logout"
             android:icon="@drawable/logout"
             android:title="@string/logout"

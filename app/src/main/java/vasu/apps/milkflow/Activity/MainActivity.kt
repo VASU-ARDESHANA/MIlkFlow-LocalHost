@@ -81,7 +81,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 R.id.nav_register_customer,
                 R.id.nav_supplier_account,
                 R.id.nav_supplier_products,
-                R.id.nav_daily_sell
+                R.id.nav_daily_sell,
+                R.id.nav_update
             ), drawerLayout
         )
 
@@ -163,7 +164,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 return true
             }
 
-            R.id.nav_customer_list, R.id.nav_register_customer, R.id.nav_daily_sell -> {
+            R.id.nav_customer_list, R.id.nav_register_customer, R.id.nav_daily_sell, R.id.nav_update -> {
                 NavigationUI.onNavDestinationSelected(item, navController)
             }
 

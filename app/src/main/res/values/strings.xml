@@ -90,4 +90,13 @@
     <string name="add_daily_sell">Add Daily Sell</string>
     <string name="_0">0</string>
     <string name="_0_0_Ltr">0.0 Ltr</string>
+    <string name="app_update">App Update</string>
+    <string name="check_update">Check Update</string>
+    <string name="update"> Update</string>
+    <string name="new_version">New Version:</string>
+    <string name="check_for_update">Check for Update</string>
+    <string name="current_version">Current Version:</string>
+    <string name="description">Description</string>
+    <string name="change_log">What\'s new</string>
+    <string name="download_now">Download Now</string>
 </resources>

@@ -2,7 +2,6 @@ package vasu.apps.milkflow.Services
 
 import android.util.Log
 import io.appwrite.Client
-import io.appwrite.ID
 import io.appwrite.Query
 import io.appwrite.exceptions.AppwriteException
 import io.appwrite.models.Document
@@ -14,12 +13,14 @@ class UserService(client: Client) {
     private val databases = Databases(client)
     private val databaseId = Constant.DATABASE_ID
     private val userCollectionId = Constant.USER_COLLECTION_ID
-    private val customerCollectionId = Constant.CUSTOMER_COLLECTION_ID
+    private val apkUpdateCollectionId = Constant.APK_UPDATE_COLLECTION
     private var accountService = Appwrite.accountService
 
     suspend fun getUserDocument(userId: String): Map<String, Any>? {
         return try {
-            val result = databases.listDocuments(databaseId, userCollectionId, queries = listOf(Query.equal("uid", userId)))
+            val result = databases.listDocuments(
+                databaseId, userCollectionId, queries = listOf(Query.equal("uid", userId))
+            )
             val document = result.documents.firstOrNull()
             document?.data
         } catch (e: AppwriteException) {
@@ -28,7 +29,9 @@ class UserService(client: Client) {
         }
     }
 
-    suspend fun updateUserDocument(userId: String, updateData: Map<String, Any>, currentData: Map<String, Any>) {
+    suspend fun updateUserDocument(
+        userId: String, updateData: Map<String, Any>, currentData: Map<String, Any>
+    ) {
         try {
             val changedData = updateData.filter { (key, newValue) ->
                 val currentValue = currentData[key]
@@ -43,11 +46,15 @@ class UserService(client: Client) {
             }
 
             if (changedData.isNotEmpty()) {
-                val result = databases.listDocuments(databaseId, userCollectionId, queries = listOf(Query.equal("uid", userId)))
+                val result = databases.listDocuments(
+                    databaseId, userCollectionId, queries = listOf(Query.equal("uid", userId))
+                )
                 val document = result.documents.firstOrNull()
                     ?: throw Exception("User document not found for uid: $userId")
 
-                databases.updateDocument(databaseId, userCollectionId, document.id, data = changedData)
+                databases.updateDocument(
+                    databaseId, userCollectionId, document.id, data = changedData
+                )
                 Log.d("LogUserServices", "Updated fields: ${changedData.keys}")
             } else {
                 Log.d("LogUserServices", "No changes detected. Skipping update.")
@@ -59,7 +66,9 @@ class UserService(client: Client) {
         }
     }
 
-    suspend fun updateProductsDocument(userId: String, updateData: Map<String, Any>, currentData: Map<String, Any>) {
+    suspend fun updateProductsDocument(
+        userId: String, updateData: Map<String, Any>, currentData: Map<String, Any>
+    ) {
         try {
             val changedData = updateData.filter { (key, newValue) ->
                 val currentValue = currentData[key]
@@ -81,11 +90,15 @@ class UserService(client: Client) {
             }
 
             if (changedData.isNotEmpty()) {
-                val result = databases.listDocuments(databaseId, userCollectionId, queries = listOf(Query.equal("uid", userId)))
+                val result = databases.listDocuments(
+                    databaseId, userCollectionId, queries = listOf(Query.equal("uid", userId))
+                )
                 val document = result.documents.firstOrNull()
                     ?: throw Exception("User document not found for uid: $userId")
 
-                databases.updateDocument(databaseId, userCollectionId, document.id, data = changedData)
+                databases.updateDocument(
+                    databaseId, userCollectionId, document.id, data = changedData
+                )
                 Log.d("LogUserServices", "Updated fields: ${changedData.keys}")
             } else {
                 Log.d("LogUserServices", "No changes detected. Skipping update.")
@@ -96,5 +109,20 @@ class UserService(client: Client) {
             throw e
         }
     }
+
+    suspend fun getUpdate(): List<Document<Map<String, Any>>> {
+        return try {
+            val result = databases.listDocuments(
+                databaseId,
+                apkUpdateCollectionId,
+                listOf(Query.orderDesc("version_code"))
+            )
+            result.documents
+        } catch (e: AppwriteException) {
+            Log.e("LogUserServices", "getAllUpdates: ${e.message}")
+            throw e
+        }
+    }
+
 
 }

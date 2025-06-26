@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.RadioGroup
@@ -45,6 +46,7 @@ class DailySellFragment : Fragment() {
     private lateinit var nameNotFound: TextView
     private lateinit var radioGroup: RadioGroup
     private lateinit var selectAllCustomer: CheckBox
+    private lateinit var refresh: ImageButton
     private lateinit var totalPrice: TextView
     private lateinit var totalLitter: TextView
     private lateinit var addData: AppCompatButton
@@ -70,6 +72,7 @@ class DailySellFragment : Fragment() {
         nameNotFound = rootView.findViewById(R.id.daily_sell_search_not_found)
         radioGroup = rootView.findViewById(R.id.daily_sell_time)
         selectAllCustomer = rootView.findViewById(R.id.daily_sell_select_all_customer)
+        refresh = rootView.findViewById(R.id.daily_sell_refresh)
         totalPrice = rootView.findViewById(R.id.daily_sell_total_price)
         totalLitter = rootView.findViewById(R.id.daily_sell_total_litters)
         addData = rootView.findViewById(R.id.daily_sell_add_data)
@@ -112,7 +115,7 @@ class DailySellFragment : Fragment() {
             }
 
             override fun onDisabledDateSelected(
-                year: Int, month: Int, day: Int, dayOfWeek: Int, todayDate: Boolean
+                year: Int, month: Int, day: Int, dayOfWeek: Int, isDisabled: Boolean
             ) {
             }
         })
@@ -135,6 +138,10 @@ class DailySellFragment : Fragment() {
             totalPrice.text = getString(R.string._0)
 
             filterAndDisplayData()
+        }
+
+        refresh.setOnClickListener {
+            reset()
         }
 
         fetchData()
@@ -266,12 +273,15 @@ class DailySellFragment : Fragment() {
                 }
             } catch (e: Exception) {
                 if (e.message?.contains("Document with the requested ID already exists") == true) {
-                    toastMsg("Selected customer(s) already have today's data added.", "warning")
+                    toastMsg(
+                        "Selected customer(s) already have data added for $date ($time).", "warning"
+                    )
                 } else {
                     toastMsg("Failed to save data: ${e.message}", "error")
                 }
             } finally {
                 progressBar.visibility = View.GONE
+                reset()
             }
         }
     }
@@ -365,4 +375,15 @@ class DailySellFragment : Fragment() {
             }
         }
     }
+
+    fun reset() {
+        selectAllCustomer.setOnCheckedChangeListener(null)
+        selectAllCustomer.isChecked = false
+        restoreSelectAllListener()
+        adapter.deselectAll()
+        filterAndDisplayData()
+        totalLitter.text = getString(R.string._0_0_Ltr)
+        totalPrice.text = getString(R.string._0)
+    }
+
 }
